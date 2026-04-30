@@ -58,3 +58,5 @@
 # IDE Project files
 /.idea
 /upload/.idea
+docker-compose.yml
+.env
