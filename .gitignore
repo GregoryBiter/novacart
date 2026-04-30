@@ -59,4 +59,5 @@
 /.idea
 /upload/.idea
 docker-compose.yml
+!/.docker/templates/*/docker-compose.yml
 .env
