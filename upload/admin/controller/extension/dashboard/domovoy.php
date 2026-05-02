@@ -199,13 +199,19 @@ class ControllerExtensionDashboardDomovoy extends Controller
 
             // Calc Cron
 
-            $cron_time = $cron[$key]['time'] * 60;
+            $cron_time = isset($cron[$key]['time']) ? $cron[$key]['time'] * 60 : 0;
 
             $cache = $this->config->get('domovoy_folders_' . $key);
 
-            $time = $this->date_diff(date('Y-m-d H:i'), $cache['date']);
-            if ($cron[$key]['status'] && $time > $cron_time) {
-                $this->calc($key);
+            if (empty($cache) || !isset($cache['date'])) {
+                if (isset($cron[$key]['status']) && $cron[$key]['status']) {
+                    $this->calc($key);
+                }
+            } else {
+                $time = $this->date_diff(date('Y-m-d H:i'), $cache['date']);
+                if (isset($cron[$key]['status']) && $cron[$key]['status'] && $time > $cron_time) {
+                    $this->calc($key);
+                }
             }
 
             if ($cache) {

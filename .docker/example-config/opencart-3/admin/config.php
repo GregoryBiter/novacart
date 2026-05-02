@@ -31,7 +31,3 @@ define('DB_PASSWORD', $_ENV['OC_DB_PASSWORD']);
 define('DB_DATABASE', $_ENV['OC_DB_NAME']);
 define('DB_PORT', $_ENV['OC_DB_PORT']);
 define('DB_PREFIX', 'oc_');
-
-// OpenCart API
-define('OPENCART_SERVER', 'https://www.opencart.com/');
-define('OPENCARTFORUM_SERVER', 'https://opencartforum.com/');
