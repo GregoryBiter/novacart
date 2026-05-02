@@ -32,12 +32,24 @@ class ControllerStartupStartup extends Controller {
 			}
 		}
 
-		// Set time zone
-		if ($this->config->get('config_timezone')) {
-			date_default_timezone_set($this->config->get('config_timezone'));
+			// Set time zone
+			if ($this->config->get('config_timezone')) {
+				$timezone = $this->config->get('config_timezone');
+				$timezones = timezone_identifiers_list();
+				$aliases = array(
+					'Europe/Kyiv' => 'Europe/Kiev'
+				);
 
-			// Sync PHP and DB time zones.
-			$this->db->query("SET time_zone = '" . $this->db->escape(date('P')) . "'");
+				if (!in_array($timezone, $timezones, true) && isset($aliases[$timezone]) && in_array($aliases[$timezone], $timezones, true)) {
+					$timezone = $aliases[$timezone];
+				}
+
+				if (in_array($timezone, $timezones, true)) {
+					date_default_timezone_set($timezone);
+				}
+
+				// Sync PHP and DB time zones.
+				$this->db->query("SET time_zone = '" . $this->db->escape(date('P')) . "'");
 		}
 
 		// Theme
