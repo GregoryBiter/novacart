@@ -3,7 +3,7 @@
         'name' => 'opencart/opencart',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c6d34ae6dfb44bcd65928bf80423881cff0946d3',
+        'reference' => 'f9ba532c0e55e732958fadcfc0e28bf2113f20c7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../../../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'opencart/opencart' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c6d34ae6dfb44bcd65928bf80423881cff0946d3',
+            'reference' => 'f9ba532c0e55e732958fadcfc0e28bf2113f20c7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../../../../',
             'aliases' => array(),
