@@ -1,6 +1,6 @@
 <?php
 // Version
-define('VERSION', '3.0.3.7');
+define('VERSION', '3.0.4.1');
 define('VERSION_CORE', 'ocStore');
 define('VERSION_BUILD', '0001');
 

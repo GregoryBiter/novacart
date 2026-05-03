@@ -34,7 +34,7 @@
 /upload/system/storage/upload/*
 !/upload/system/storage/upload/index.html
 
-# Flags 
+# Flags
 # remove sharp char if you want to add flags to gitignore
 # /upload/flags/*
 
@@ -62,3 +62,5 @@ docker-compose.yml
 !/.docker/templates/*/docker-compose.yml
 .env
 .docker/logs/*
+/.cache/cache
+/tools
