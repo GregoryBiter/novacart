@@ -15,7 +15,8 @@ class File {
 				$time = substr(strrchr($file, '.'), 1);
 
 				if ($time < time()) {
-					$this->delete(substr($filename, 6, strrpos($filename, '.') - 6));
+					$key = substr($filename, 6, strrpos($filename, '.') - 6);
+					$this->delete($key);
 				}
 			}
 		}
@@ -65,13 +66,17 @@ class File {
 		fclose($handle);
 	}
 
-	public function delete(string $key) {
-		$files = glob(DIR_CACHE . 'cache.' . basename($key) . '.*');
+	public function delete($key) {
+		if ($key === '*') {
+			$files = glob(DIR_CACHE . 'cache.*.*');
+		} else {
+			$files = glob(DIR_CACHE . 'cache.' . preg_replace('/[^A-Z0-9\._-]/i', '', $key) . '.*');
+		}
 
 		if ($files) {
 			foreach ($files as $file) {
-				if (!@unlink($file)) {
-					clearstatcache(false, $file);
+				if (file_exists($file)) {
+					@unlink($file);
 				}
 			}
 		}

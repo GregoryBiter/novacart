@@ -14,8 +14,13 @@
         "vendor-dir": "./upload/system/storage/vendor/"
     },
     "require": {
-        "php": ">=7.4",
-        "scssphp/scssphp": "1.1.1",
-        "twig/twig": "^2.4.8"
+      "php": ">=7.4",
+      "scssphp/scssphp": "^1.11.0",
+      "twig/twig": "^3.3"
+  },
+  "autoload-dev": {
+      "psr-4": {
+          "Tools\\PHPStan\\": "tools/phpstan/"
+      }
     }
 }
